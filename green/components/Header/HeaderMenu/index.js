@@ -1,8 +1,12 @@
+import {
+  faBagShopping,
+  faBars,
+  faXmark,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Image from "next/image";
 import styled from "styled-components";
 import SearchProduct from "./SearchProduct";
-import Image from "next/image";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
 const Container = styled.div`
   padding: 0px 5%;
 `;
@@ -41,66 +45,72 @@ const BoxInfoOrder = styled.div`
 `;
 const ButtonCartContainer = styled.div`
   position: relative;
-  :hover > #box-info-order {
-    display: inline-block;
+  @media (min-width: 1280px) {
+    :hover > #box-info-order {
+      display: inline-block;
+    }
   }
 `;
-const HeaderMenu = () => {
+const HeaderMenu = ({ handleOpenCloseMenu, openMenu }) => {
   return (
     <Container className="shadow-md w-full top-0 left 0 ">
-      <div className="container md:mx-auto">
-        <HeaderMenuItem className="grid grid-cols-7 gap-0 md:items-center py-5 md:px-10 px-7">
-          <LogoContainer>
+      <div className="container mx-auto">
+        <HeaderMenuItem className="xl:flex items-center xl:justify-between xl:w-full flex flex-wrap xl:flex-nowrap">
+          <div
+            onClick={handleOpenCloseMenu}
+            className="xl:hidden w-1/3 xl:w-full text-4xl xl:text-2xl"
+          >
+            <FontAwesomeIcon icon={openMenu ? faXmark : faBars} />
+          </div>
+          <LogoContainer className="w-1/3 xl:w-1/4 flex xl:block justify-center xl:items-left">
             <Image src="/logo.webp" width={110} height={68} />
           </LogoContainer>
-          <FormSearchContainer className="col-span-3 px-10">
+          <FormSearchContainer className="px-0 py-10 xl:px-5 w-full xl:w-2/4 xl:order-none order-1">
             <SearchProduct />
           </FormSearchContainer>
-          <LeftMenuContainer className="md:flex">
-            <div className="md:flex items-center">
-              <Image src="/phone.png" width={28} height={28} />
-            </div>
-            <div className="pl-3">
-              <div className="text-2xl py-1">Hỗ trợ khách hàng</div>
-              <div className="text-xl font-bold hover:text-[#537f44] py-1 cursor-pointer">
-                098 167 3441
+          <div className="flex w-1/3 xl:w-full px-1 lg:px-10 justify-end">
+            <LeftMenuContainer className="xl:flex hidden">
+              <div className="md:flex items-center">
+                <Image src="/phone.png" width={28} height={28} />
               </div>
-            </div>
-          </LeftMenuContainer>
-          <LeftMenuContainer className="md:flex">
-            <div className="md:flex items-center">
-              <Image src="/account.png" width={28} height={28} />
-            </div>
-            <div className="pl-3">
-              <div className="text-2xl py-1 hover:text-[#537f44] cursor-pointer">
-                Đăng nhập
+              <div className="pl-3">
+                <div className="text-2xl py-1">Hỗ trợ khách hàng</div>
+                <div className="text-xl font-bold hover:text-[#537f44] py-1 cursor-pointer">
+                  098 167 3441
+                </div>
               </div>
-              <div className="text-base py-1 hover:text-[#537f44] cursor-pointer">
-                Đăng ký
+            </LeftMenuContainer>
+            <LeftMenuContainer className="xl:flex hidden">
+              <div className="md:flex items-center">
+                <Image src="/account.png" width={28} height={28} />
               </div>
-            </div>
-          </LeftMenuContainer>
-          <LeftMenuContainer className="w-full px-7 cursor-pointer">
-            <ButtonCartContainer
-              data-tooltip-target="box-info-order"
-              data-tooltip-placement="bottom"
-              className="md:flex py-2 px-2 items-center justify-between w-full border-solid border-2 rounded-md border-[#537f44] text-[#537f44] hover:bg-[#537f44] hover:text-white  "
-            >
-              <div className="text-5xl">
-                <FontAwesomeIcon icon={faBagShopping} />
+              <div className="pl-3">
+                <div className="text-2xl py-1 hover:text-[#537f44] cursor-pointer">
+                  Đăng nhập
+                </div>
+                <div className="text-base py-1 hover:text-[#537f44] cursor-pointer">
+                  Đăng ký
+                </div>
               </div>
-              <div className="text-2xl">Giỏ hàng</div>
-              <div className="bg-[#ffc108] text-black py-2 px-3 rounded-md">
-                3
-              </div>
-              <BoxInfoOrder
-                id="box-info-order"
-                className="absolute bg-white border rounded-md border-solid border-[#ccc] text-black py-4 px-2 text-center"
-              >
-                Chưa có đơn hàng nào
-              </BoxInfoOrder>
-            </ButtonCartContainer>
-          </LeftMenuContainer>
+            </LeftMenuContainer>
+            <LeftMenuContainer className="px-0 xl:px-7 cursor-pointer sm:w-2/7 xl:w-2/7 ">
+              <ButtonCartContainer className=" md:flex py-2  px-2 items-center justify-between w-full border-none md:border-solid md:border-2 md:rounded-md border-[#537f44] text-[#537f44] hover:bg-[#537f44] hover:text-white">
+                <div className="text-5xl">
+                  <FontAwesomeIcon icon={faBagShopping} />
+                </div>
+                <div className="text-2xl px-2 hidden md:block">Giỏ hàng</div>
+                <div className="bg-[#ffc108] text-black py-1 px-3 md:py-2 md:px-3 rounded-md absolute md:static top-0 right-[-10px]">
+                  3
+                </div>
+                <BoxInfoOrder
+                  id="box-info-order"
+                  className="absolute bg-white border rounded-md border-solid border-[#ccc] text-black py-4 px-2 text-center"
+                >
+                  Chưa có đơn hàng nào
+                </BoxInfoOrder>
+              </ButtonCartContainer>
+            </LeftMenuContainer>
+          </div>
         </HeaderMenuItem>
       </div>
     </Container>
