@@ -22,7 +22,7 @@ const Footer = () => {
   return (
     <Container>
       <div className="container md:mx-auto">
-        <div className="grid grid-cols-4 gap-0 text-white py-10">
+        <div className="sm:grid sm:grid-cols-2 sm:gap-0 xl:grid xl:grid-cols-4 xl:gap-0 grid grid-cols-1 gap-0 text-white py-10">
           <div>
             <h4 className="text-3xl uppercase font-semibold py-4 px-2">
               Về chúng tôi
