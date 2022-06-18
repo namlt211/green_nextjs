@@ -1,8 +1,5 @@
-import React from "react";
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const FormSearch = styled.form`
   align-items: center !important;
@@ -38,11 +35,7 @@ const SearchProduct = () => {
         placeholder="Tìm kiếm sản phẩm ..."
         {...register("keySearch")}
       />
-      <FontAwesomeIcon
-        onClick={handleSubmit(onSubmit)}
-        icon={faMagnifyingGlass}
-        className="form_input_search"
-      />
+      <i className="fa-solid fa-magnifying-glass form_input_search"></i>
     </FormSearch>
   );
 };

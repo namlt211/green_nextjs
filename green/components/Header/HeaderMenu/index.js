@@ -1,14 +1,8 @@
-import {
-  faBagShopping,
-  faBars,
-  faXmark,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import styled from "styled-components";
 import SearchProduct from "./SearchProduct";
 const Container = styled.div`
-  padding: 0px 5%;
+  padding: 0px 12%;
 `;
 const HeaderMenuItem = styled.div``;
 const LogoContainer = styled.div``;
@@ -60,7 +54,11 @@ const HeaderMenu = ({ handleOpenCloseMenu, openMenu }) => {
             onClick={handleOpenCloseMenu}
             className="xl:hidden w-1/3 xl:w-full text-4xl xl:text-2xl"
           >
-            <FontAwesomeIcon icon={openMenu ? faXmark : faBars} />
+            {openMenu ? (
+              <i className="fa-solid fa-xmark"></i>
+            ) : (
+              <i className="fa-solid fa-bars"></i>
+            )}
           </div>
           <LogoContainer className="w-1/3 xl:w-1/4 flex xl:block justify-center xl:items-left">
             <Image src="/logo.webp" width={110} height={68} />
@@ -68,7 +66,7 @@ const HeaderMenu = ({ handleOpenCloseMenu, openMenu }) => {
           <FormSearchContainer className="px-0 py-10 xl:px-5 w-full xl:w-2/4 xl:order-none order-1">
             <SearchProduct />
           </FormSearchContainer>
-          <div className="flex w-1/3 xl:w-full px-1 lg:px-10 justify-end">
+          <div className="flex w-1/3 xl:w-full px-0 lg:pl-10 justify-end">
             <LeftMenuContainer className="xl:flex hidden">
               <div className="md:flex items-center">
                 <Image src="/phone.png" width={28} height={28} />
@@ -96,7 +94,7 @@ const HeaderMenu = ({ handleOpenCloseMenu, openMenu }) => {
             <LeftMenuContainer className="px-0 xl:px-7 cursor-pointer sm:w-2/7 xl:w-2/7 ">
               <ButtonCartContainer className=" md:flex py-2  px-2 items-center justify-between w-full border-none md:border-solid md:border-2 md:rounded-md border-[#537f44] text-[#537f44] hover:bg-[#537f44] hover:text-white">
                 <div className="text-5xl">
-                  <FontAwesomeIcon icon={faBagShopping} />
+                  <i className="fa-solid fa-bag-shopping"></i>
                 </div>
                 <div className="text-2xl px-2 hidden md:block">Giỏ hàng</div>
                 <div className="bg-[#ffc108] text-black py-1 px-3 md:py-2 md:px-3 rounded-md absolute md:static top-0 right-[-10px]">

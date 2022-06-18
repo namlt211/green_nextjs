@@ -1,6 +1,7 @@
 import { ThemeProvider } from "styled-components";
 import Layout from "../layout";
 import "../styles/globals.css";
+import "../assets/fontawesome/css/all.css";
 
 const theme = {
   colors: {

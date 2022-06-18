@@ -1,17 +1,5 @@
-import styled from "styled-components";
 import Image from "next/image";
-import {
-  faLocationDot,
-  faEnvelope,
-  faMobileScreen,
-} from "@fortawesome/free-solid-svg-icons";
-import {
-  faFacebookF,
-  faTwitter,
-  faBehance,
-  faInstagram,
-} from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import styled from "styled-components";
 
 const Container = styled.div`
   background-color: #547f44;
@@ -35,17 +23,17 @@ const Footer = () => {
               đầu tư Thành phố Hồ Chí Minh cấp ngày 12 tháng 08 năm 2021
             </p>
             <div className="md:flex py-2 px-2">
-              <FontAwesomeIcon icon={faLocationDot} />
+              <i className="fa-regular fa-location-dot"></i>
               <div className="ml-4 text-[15px]">
                 Địa chỉ: 49 Đường Số 4, KP4, P.An Phú, TP.Thủ Đức, TP.HCM
               </div>
             </div>
             <div className="md:flex py-2 text-2xl px-2">
-              <FontAwesomeIcon icon={faEnvelope} />
+              <i className="fa-regular fa-envelope"></i>
               <div className="ml-3">Email: xinchao@greennow.vn</div>
             </div>
             <div className="md:flex py-2 text-2xl px-2">
-              <FontAwesomeIcon icon={faMobileScreen} />
+              <i className="fa-regular fa-mobile-screen"></i>
               <div className="ml-4 ">093 858 7191</div>
             </div>
           </div>
@@ -76,16 +64,16 @@ const Footer = () => {
             </h4>
             <div className="text-white md:flex py-2">
               <div className="text-5xl py-2 px-2">
-                <FontAwesomeIcon icon={faFacebookF} />
+                <i className="fa-brands fa-facebook-f"></i>
               </div>
               <div className="text-5xl py-2 px-2">
-                <FontAwesomeIcon icon={faTwitter} />
+                <i className="fa-brands fa-twitter"></i>
               </div>
               <div className="text-5xl py-2 px-2">
-                <FontAwesomeIcon icon={faBehance} />
+                <i className="fa-brands fa-behance"></i>
               </div>
               <div className="text-5xl py-2 px-2">
-                <FontAwesomeIcon icon={faInstagram} />
+                <i className="fa-brands fa-instagram"></i>
               </div>
             </div>
             <div className="py-2">
